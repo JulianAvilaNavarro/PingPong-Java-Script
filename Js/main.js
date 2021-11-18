@@ -28,10 +28,19 @@
         //le agrego nuevo elemento con push.
         //dibujar cosas
         this.kind="rectangle";
+        this.speed=10;
     }
     self.Bar.prototype={
-        down: function(){},
-        up: function(){}
+        down: function(){
+            this.y +=this.speed;
+        },
+
+        up: function(){
+            this.y -=this.speed; 
+        },
+        toString: function(){
+            return "x: "+this.x+" y: "+this.y;
+        }
     }
 })();
 
@@ -64,14 +73,26 @@
         }
     }
 })();
-
-self.addEventListener("load",main);
-function main(){
-    console.log("Hola Mundo");
-    var board= new Board(800,600);
+var board= new Board(800,600);
     var bar=new Bar(20,10,30,70,board);
     var bar=new Bar(700,10,30,70,board);
     var canvas=document.getElementById('canvas');
     var board_View= new BoardView(canvas,board);
+
+document.addEventListener("keydown",function(ev){
+    //console.log(ev.keyCode);
+    if(event.keyCode==38){
+        bar.up();
+    }
+    else if(ev.keyCode==40){
+        bar.down();
+    }
+    console.log(""+bar);
+});
+
+self.addEventListener("load",main);
+function main(){
+    console.log("Hola Mundo");
+    
     board_View.draw();
 }
