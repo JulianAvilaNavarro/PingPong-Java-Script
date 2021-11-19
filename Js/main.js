@@ -30,7 +30,7 @@
         this.direction=1;
         this.bounce_angle=0;
         this.max_bounce_angle=Math.PI/12;
-        this.speed=3;
+        this.speed=5;
         board.ball=this;
         this.kind="circle";  
         //hasta aquí van los atributos de la pelota 
@@ -45,11 +45,13 @@
 			if (this.y <= 10) {
 				this.speed_y = -this.speed_y;
 				this.bounce_angle = -this.bounce_angle;
+                 //board.playing=!board.playing;
                 // se tiene en cuenta el radio de la bola
 			}
 			if (this.y >= 390) {
 				this.speed_y = -this.speed_y;
 				this.bounce_angle = -this.bounce_angle;
+                //board.playing=!board.playing;
                 // se tienen en cuenta los limites del canvas
 			}
 
@@ -58,12 +60,15 @@
 			if (this.x <= 10) {
 				this.speed_x = -this.speed_x;
 				this.bounce_angle = -this.bounce_angle;
-                 // se tiene en cuenta el radio de la bola
+                board.playing=!board.playing;// si toca pared vertical pausa el juego
+                alert("¡Perdiste Jugador 1!");
 			}
 			if (this.x >= 790) {
 				this.speed_x = -this.speed_x;
 				this.bounce_angle = -this.bounce_angle;
+                board.playing=!board.playing; // si toca pared vertical pausa el juego
                 // se tienen en cuenta los limites del canvas
+                alert("¡Perdiste Jugador 2!");
 			}
 
              //funcion de colision 
@@ -214,11 +219,11 @@
 })();
 var board= new Board(800,400); //Se crea el tablero 
 // x, y, width, height
-    var bar=new Bar(20,10,30,70,board);// barra 1
-    var bar_2=new Bar(700,10,30,70,board);// barra 2
+    var bar=new Bar(20,150,30,70,board);// barra 1
+    var bar_2=new Bar(750,150,30,70,board);// barra 2
     var canvas=document.getElementById("canvas"); // DOM
     var board_View= new BoardView(canvas,board);// se crea el tablero
-    var ball=new Ball(350,100,10,board); // se crea pelota
+    var ball=new Ball(400,200,15,board); // se crea pelota
 
 
 // aqui capturamos las teclas up, down, w,s y espacio
@@ -227,21 +232,21 @@ document.addEventListener("keydown",function(ev){
     //console.log(ev.keyCode);
     if(event.keyCode==38){
         ev.preventDefault();
-        bar.up();
+        bar_2.up();
     }
     else if(ev.keyCode==40){
         ev.preventDefault();
-        bar.down();
+        bar_2.down();
     }
     //w
     else if(ev.keyCode==87){
         ev.preventDefault();
-        bar_2.up();
+        bar.up();
     }
     //s
     else if(ev.keyCode==83){
         ev.preventDefault();
-        bar_2.down();
+        bar.down();
     }
     else if(ev.keyCode===32) {
         ev.preventDefault();

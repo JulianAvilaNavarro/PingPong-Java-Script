@@ -1,0 +1,40 @@
+.pagina {
+    display: flex;
+    align-items: center;
+    background-image: url(/CSS/pingPong.jpg);
+    background-size: cover;
+  }
+.juego {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-left: 20px;
+    width: 70%;
+    color:rgb(4, 75, 136);
+    font-size: 100%
+    
+  }
+
+
+  .boton{
+    margin-top: 10px;
+    text-decoration: none;
+    color:red;
+    font-size: 150% 
+  }
+  
+  .instrucciones {
+    width: 40%;
+    height: 80%;
+    align-items: center;
+    color:maroon;
+    font-size: 150%;
+    font-style:italic;
+    background-color:white;
+  }
+  #canvas {
+   background-image: url(/CSS/cancha.jpg);
+   background-size: cover;
+   border: 10px solid saddlebrown;
+  
+}

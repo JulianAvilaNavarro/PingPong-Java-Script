@@ -4,15 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/Style.CSS">
+    <title>Mi juego ping pong</title>
     <style>
         canvas{ border:solid; }
     </style>
 </head>
 <body>
-    <h1>Ping Pong por Julian Avila</h1>
-    <canvas id="canvas"></canvas>
-    <script src="/Js/main.js"></script>
+    <div class="pagina">
+        <div class="juego">
+            <h1>Juego ping pong en Java Script</h1>
+            <h2>*Presiona espacio para iniciar o pausar el juego*</h2>
+            <h3>Por: Julian Avila. TQA SofkaU</h3>
+            <canvas id="canvas"></canvas>
+    
+            <button type="button" class="boton" onclick="location.reload()">Jugar de nuevo</button>
+        </div>
+        
+        <div class="instrucciones">
+            <p>Instrucciones de juego:<br><br>
+                * El jugador 1 mueve la barra izquierda con la tecla (W) para subir y tecla (S) para bajar.<br><br>
+                * El jugador 2 mueve la barra derecha con fecha arriba  y la fecha abajo. <br><br>
+                * Si la bola toca las paredes verticales se acaba el juego y debe dar click en "Jugar de nuevo".<br><br>
+            </p>
+        </div>
+    </div>      
+     
+    <script type="module" src="/Js/main.js"></script>
 
 </body>
 </html>
